@@ -1,10 +1,10 @@
 import { hash } from "bcrypt"
-import { UserRequest } from "../../interfaces/UsersInterface"
+import { ICreate } from "../../interfaces/UsersInterface"
 import { prisma } from "../../prisma"
 import { UsersRepository } from "../../repositories/UsersRepository"
 
 export class CreateUserService {
-  async execute ({ name, email, password }: UserRequest) {
+  async execute ({ name, email, password }: ICreate) {
     if (!email) {
       throw new Error("Email or password invalid")
     }
