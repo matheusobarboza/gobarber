@@ -24,7 +24,7 @@ export class AuthUserService {
     }
 
     //Gerar token
-    let secretKey: string | undefined = process.env.JWT_SECRET
+    let secretKey: string | undefined = process.env.ACCESS_KEY_TOKEN
     if (!secretKey) {
       throw new Error("There is not token key!")
     }

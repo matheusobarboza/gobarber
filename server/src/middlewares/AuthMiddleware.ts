@@ -10,11 +10,14 @@ export class AuthMiddleware {
     const authToken = req.headers.authorization
 
     if (!authToken) {
-      return res.status(401).end()
+      return res.status(401).json({
+        code: 'token.missing',
+        message: 'Token missing',
+      });
     }
 
     const [, token] = authToken.split(' ')
-    let secretKey: string | undefined = process.env.ACCESS_TOKEN
+    let secretKey: string | undefined = process.env.ACCESS_KEY_TOKEN
     if (!secretKey) {
       throw new Error('There is no token key!')
     }

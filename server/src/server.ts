@@ -2,6 +2,7 @@ import cors from 'cors'
 import express, { Application, NextFunction, Request, Response } from 'express'
 import 'express-async-errors'
 import user from './routes/userRoutes'
+import schedule from './routes/scheduleRoutes'
 
 const app:Application = express()
 
@@ -11,6 +12,7 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 
 app.use(user)
+app.use(schedule)
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   if(err instanceof Error) {

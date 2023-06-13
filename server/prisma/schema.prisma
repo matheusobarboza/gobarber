@@ -21,6 +21,6 @@ model Schedule {
   name    String
   phone   String
   date    DateTime
-  users   Users    @relation(fields: [user_id], references: [id])
   user_id String   @default("")
+  users   Users    @relation(fields: [user_id], references: [id])
 }

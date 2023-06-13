@@ -4,3 +4,9 @@ export interface ICreate {
   date: Date;
   user_id: string
 }
+
+export interface IUpdate {
+  id: string
+  date: Date
+  user_id: string
+}
