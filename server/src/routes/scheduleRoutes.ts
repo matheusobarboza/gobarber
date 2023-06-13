@@ -7,11 +7,12 @@ import { DeleteScheduleController } from '../controllers/schedule/DeleteSchedule
 
 const router = Router()
 
+const authMiddleware = new AuthMiddleware()
+
 const createSchedulesController = new CreateScheduleController()
 const listAllSchedulesController = new ListAllSchedulesController()
 const updateSchedulesController = new UpdateScheduleController()
 const deleteSchedulesController = new DeleteScheduleController()
-const authMiddleware = new AuthMiddleware()
 
 router.post("/schedules", authMiddleware.auth, createSchedulesController.handle)
 router.get("/schedules", authMiddleware.auth, listAllSchedulesController.handle)
